@@ -12,7 +12,11 @@
             </div>
             <div class="mb-3 g-2">
               <!--若使用者沒有輸入內容，就按下了送出鈕，會防止表單送出並提示使用者--->
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+              <input type="email" class="form-control {{#if invalid}}is-invalid{{/if}}" name="email" id="email"
+                placeholder="Email" required>
+              <div id="validationFeedback" class="invalid-feedback">
+                unexisted user or invalid password.
+              </div>
             </div>
             <div class="mb-3 g-2">
               <input type="text" class="form-control" name="password" id="password" placeholder="Password" required>
