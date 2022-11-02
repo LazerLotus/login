@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const users1 = require('../../models/users')
 const users = [
   {
     firstName: 'Tony',
@@ -39,11 +40,14 @@ router.post('/', (req, res) => {
   const usermail = req.body.email
   const password = req.body.password
   const user = users.filter((user) => user.email === usermail)
-  console.log(user)
-  if (user[0].password === password) {
-    return res.render('welcome', { username: user[0].firstName })
-
-  } else {
+  if (user.length !== 0) {
+    if (user[0].password === password) {
+      return res.render('welcome', { username: user[0].firstName })
+    } else {
+      return res.render('home', { invalid: "invalid" })
+    }
+  }
+  else {
     return res.render('home', { invalid: "invalid" })
   }
 
