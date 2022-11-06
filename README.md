@@ -11,6 +11,7 @@
 ## installaiton
 
 1. Clone repo from github
+```git clone https://github.com/LazerLotus/login```
 2. change directory to project folder
 ```cd login```
 3. Install npm packages
